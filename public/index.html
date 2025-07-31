@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แชทเรียลไทม์</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- หน้าจอใส่ชื่อผู้ใช้ -->
+    <div class="username-container" id="usernameContainer">
+        <div class="username-card">
+            <div class="username-header">
+                <h2>💬 ยินดีต้อนรับสู่แชทเรียลไทม์</h2>
+                <p>กรุณาใส่ชื่อของคุณเพื่อเข้าร่วมการสนทนา</p>
+            </div>
+            <div class="username-input">
+                <input type="text" id="usernameInput" placeholder="ใส่ชื่อของคุณ..." maxlength="20" autocomplete="off">
+                <button id="joinButton">เข้าร่วม</button>
+            </div>
+            <div class="username-note">
+                <small>ชื่อจะแสดงในการสนทนา (สูงสุด 20 ตัวอักษร)</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- หน้าจอแชท -->
+    <div class="chat-container" id="chatContainer" style="display: none;">
+        <div class="chat-header">
+            <h2>💬 แชทเรียลไทม์</h2>
+            <div class="user-info">
+                <span class="username-display" id="currentUsername"></span>
+                <div class="online-status">
+                    <span class="status-dot"></span>
+                    <span>ออนไลน์</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="chat-messages" id="messages">
+            <!-- ข้อความจะแสดงที่นี่ -->
+        </div>
+        
+        <div class="typing-indicator" id="typing"></div>
+        
+        <div class="chat-input">
+            <div class="input-container">
+                <input type="text" id="messageInput" placeholder="พิมพ์ข้อความ..." autocomplete="off">
+                <button id="sendButton">ส่ง</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
