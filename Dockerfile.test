@@ -1,0 +1,16 @@
+# Dockerfile สำหรับการทดสอบ
+FROM node:18-alpine
+
+WORKDIR /app
+
+# คัดลอก package files
+COPY package*.json ./
+
+# ติดตั้ง dependencies ทั้งหมด (รวม dev dependencies)
+RUN npm install
+
+# คัดลอกไฟล์ทั้งหมด (รวม tests)
+COPY . .
+
+# รันการทดสอบ
+CMD ["npm", "test"]

@@ -7,6 +7,5 @@ README.md
 .nyc_output
 coverage
 .DS_Store
-tests
-jest.config.js
-*.test.js
+Dockerfile
+Dockerfile.test
