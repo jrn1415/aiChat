@@ -4,16 +4,32 @@ module.exports = {
     'server.js',
     'ChatServer.js',
     'public/script.js',
+    'tests/clientHelpers.js',
     '!node_modules/**',
-    '!coverage/**'
+    '!coverage/**',
+    '!tests/setup.js'
   ],
   testMatch: [
     '**/tests/**/*.test.js'
   ],
   coverageDirectory: 'coverage',
-  coverageReporters: ['text', 'lcov', 'html'],
+  coverageReporters: ['text', 'text-summary', 'lcov', 'html', 'json'],
+  coverageThreshold: {
+    global: {
+      branches: 80,
+      functions: 85,
+      lines: 85,
+      statements: 85
+    }
+  },
   setupFilesAfterEnv: ['<rootDir>/tests/setup.js'],
   testTimeout: 10000,
   roots: ['<rootDir>/tests'],
-  verbose: true
+  verbose: true,
+  collectCoverage: false, // จะเปิดเฉพาะเมื่อรัน --coverage
+  coveragePathIgnorePatterns: [
+    '/node_modules/',
+    '/coverage/',
+    '/tests/.*\\.old\\.js$'
+  ]
 };

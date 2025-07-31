@@ -7,6 +7,6 @@ README.md
 .nyc_output
 coverage
 .DS_Store
-tests
-jest.config.js
-*.test.js
+# tests - ต้องการสำหรับ coverage
+# jest.config.js - ต้องการสำหรับ coverage
+# *.test.js - ต้องการสำหรับ coverage

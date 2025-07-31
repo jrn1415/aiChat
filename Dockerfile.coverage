@@ -1,0 +1,20 @@
+# Dockerfile สำหรับการรัน tests พร้อม coverage
+FROM node:18-alpine
+
+WORKDIR /app
+
+# คัดลอก package files
+COPY package*.json ./
+
+# ติดตั้ง dependencies
+RUN npm install
+
+# คัดลอกไฟล์จำเป็นสำหรับ coverage
+COPY jest.config.js ./
+COPY server.js ./
+COPY ChatServer.js ./
+COPY tests/ ./tests/
+COPY public/ ./public/
+
+# รัน tests พร้อม coverage
+CMD ["npm", "run", "test:coverage"]
